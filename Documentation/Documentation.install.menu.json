@@ -1,0 +1,22 @@
+{
+  "type": "install.menu",
+  "content": {
+    "link": "index.php?application=ApplicationDeveloperDocumentation",
+    "menuClassMain": "ApplicationDeveloperDocumentation",
+    "menuIcon": "&#x1F6E0;",
+    "language": {
+      "de_DE": {
+        "menuTitle": "Dokumentation",
+        "menuDescription": "",
+        "menuPath": "/Entwickler",
+        "menuAccess": "ApplicationDeveloperDocumentation"
+      },
+      "en_US": {
+        "menuTitle": "Documentation",
+        "menuDescription": "",
+        "menuPath": "/Developer",
+        "menuAccess": "ApplicationDeveloperDocumentation"
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "install.language",
+  "content": {
+    "/meta/title": {
+      "de_DE": "Vorg\u00e4ngerversion impotieren",
+      "en_US": "Import History"
+    },
+    "/meta/description": {
+      "de_DE": "Vorg\u00e4ngerversion impotieren",
+      "en_US": "Import History"
+    },
+    "/breadcrumb": {
+      "de_DE": "Vorg\u00e4ngerversion impotieren",
+      "en_US": "Import History"
+    },
+    "/notification/imported": {
+      "de_DE": "Vorgänger Version importiert",
+      "en_US": "History Version Imported"
+    }
+  }
+}

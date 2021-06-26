@@ -1,0 +1,12 @@
+{
+    "simple": {
+        "default": {
+            "path": "/developer/skeleton/history/import"
+        }
+    },
+    "regex": {
+        "edit": {
+            "path": "/administration/box/edit/"
+        }
+    }
+}

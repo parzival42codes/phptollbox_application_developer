@@ -1,0 +1,9 @@
+{
+  "type": "install.language",
+  "content": {
+    "/breadcrumb": {
+      "de_DE": "Entwicklung",
+      "en_US": "Developer"
+    }
+  }
+}

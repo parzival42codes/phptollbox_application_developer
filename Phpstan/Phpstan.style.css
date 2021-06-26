@@ -1,0 +1,10 @@
+
+#ApplicationDeveloperPhpstan .note {
+    display: inline-block;
+    width: 100px;
+    height: 10px;
+}
+
+#ApplicationDeveloperPhpstan .note.info {
+    background-color: black;
+}

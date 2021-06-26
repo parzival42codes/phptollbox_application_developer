@@ -1,0 +1,25 @@
+{
+  "type": "install.language",
+  "content": {
+    "/meta/title": {
+      "de_DE": "Documentation",
+      "en_US": "Documentation"
+    },
+    "/meta/description": {
+      "de_DE": "Documentation",
+      "en_US": "Documentation"
+    },
+    "/breadcrumb": {
+      "de_DE": "Documentation",
+      "en_US": "Documentation"
+    },
+    "/type/code": {
+      "de_DE": "Code",
+      "en_US": "Code"
+    },
+    "/type/widget": {
+      "de_DE": "Code",
+      "en_US": "Code"
+    }
+  }
+}

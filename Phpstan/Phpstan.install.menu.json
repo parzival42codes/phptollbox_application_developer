@@ -1,0 +1,20 @@
+{
+  "type": "install.menu",
+  "content": {
+    "link": "index.php?application=ApplicationDeveloperPhpstan",
+    "menuClassMain": "ApplicationDeveloperPhpstan",
+    "menuIcon": "&#x1F6E0;",
+    "language": {
+      "de_DE": {
+        "menuTitle": "Phpstan",
+        "menuDescription": "",
+        "menuPath": "/Entwickler"
+      },
+      "en_US": {
+        "menuTitle": "Phpstan",
+        "menuDescription": "",
+        "menuPath": "/Developer"
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "install.language",
+  "content": {
+    "/breadcrumb": {
+      "de_DE": "Skeleton Vorherige Versionen",
+      "en_US": "Skeleton History"
+    },
+    "/exportButton": {
+      "de_DE": "Exportieren",
+      "en_US": "Export"
+    }
+  }
+}

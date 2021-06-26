@@ -1,0 +1,176 @@
+{
+  "type": "install.language",
+  "content": {
+    "/breadcrumb": {
+      "de_DE": "Skeleton"
+    },
+    "/form/className/label": {
+      "de_DE": "Name der Klasse",
+      "en_US": "Classname"
+    },
+    "/form/name/label": {
+      "de_DE": "Name",
+      "en_US": "Name"
+    },
+    "/form/description/label": {
+      "de_DE": "Beschreibung",
+      "en_US": "Description"
+    },
+    "/form/author/label": {
+      "de_DE": "Author",
+      "en_US": "Author"
+    },
+    "/form/version/label": {
+      "de_DE": "Version",
+      "en_US": "Version"
+    },
+    "/form/versionRequiredSystem/label": {
+      "de_DE": "Benötigte Version",
+      "en_US": "Required Version"
+    },
+    "/form/has/label": {
+      "de_DE": "Hat CSS / Javascript",
+      "en_US": "Has CSS / Javascript"
+    },
+    "/form/additionalCSS/label": {
+      "de_DE": "Zusätzliche CSS Dateien",
+      "en_US": "Additional CSS Files"
+    },
+    "/form/additionalJavascript/label": {
+      "de_DE": "Zusätzliche Javascript Dateien",
+      "en_US": "Additional Javascript Files"
+    },
+    "/form/additionalTemplates/label": {
+      "de_DE": "Zusätzliche Templates",
+      "en_US": "Additional Templates"
+    },
+    "/form/has/checkbox/css": {
+      "de_DE": "Hat CSS",
+      "en_US": "Has CSS"
+    },
+    "/form/has/checkbox/javascript": {
+      "de_DE": "Hat Javascript",
+      "en_US": "Has Javascript"
+    },
+    "/form/content/label": {
+      "de_DE": "Zusätzliche Content Templates",
+      "en_US": "Additional Content Templates"
+    },
+    "/form/content/checkbox/form": {
+      "de_DE": "Hat Formular",
+      "en_US": "Has Form"
+    },
+    "/form/content/checkbox/pagination": {
+      "de_DE": "Hat Pagination",
+      "en_US": "Has Pagination"
+    },
+    "/form/content/checkbox/filter": {
+      "de_DE": "Hat Filter",
+      "en_US": "Has Filter"
+    },
+    "/form/content/checkbox/notification": {
+      "de_DE": "Hat Notifikation",
+      "en_US": "Has Notification"
+    },
+    "/form/metaData/label": {
+      "de_DE": "Meta Daten",
+      "en_US": "Meta Data"
+    },
+    "/form/metaData/dialogButton/title": {
+      "de_DE": "Meta Daten Vorlage",
+      "en_US": "Meta Data Template"
+    },
+    "/form/metaData/dialogButton": {
+      "de_DE": "Meta Daten Vorlage",
+      "en_US": "Meta Data Template"
+    },
+    "/form/language/label": {
+      "de_DE": "Sprachdaten",
+      "en_US": "Language Data"
+    },
+    "/form/language_path_de_DE/label": {
+      "de_DE": "Deutscher Modul Pfad",
+      "en_US": "German Modul Path"
+    },
+    "/form/language_name_de_DE/label": {
+      "de_DE": "Deutscher Modul Name",
+      "en_US": "German Modul Name"
+    },
+    "/form/language_path_en_US/label": {
+      "de_DE": "Englischer Modul Pfad",
+      "en_US": "English Modul Path"
+    },
+    "/form/language_name_en_US/label": {
+      "de_DE": "Englischer Modul Name",
+      "en_US": "English Modul Name"
+    },
+    "/form/language/dialogButton/title": {
+      "de_DE": "Sprachdaten Vorlage",
+      "en_US": "Language Data Template"
+    },
+    "/form/language/dialogButton": {
+      "de_DE": "Sprachdaten Vorlage",
+      "en_US": "Language Data Template"
+    },
+    "/form/breadcrumb1/label": {
+      "de_DE": "Breadcrumb Ebene 1",
+      "en_US": "Breadcrumb Level 1"
+    },
+    "/form/breadcrumb2/label": {
+      "de_DE": "Breadcrumb Ebene 2",
+      "en_US": "Breadcrumb Level 2"
+    },
+    "/form/breadcrumb3/label": {
+      "de_DE": "Breadcrumb Ebene 3",
+      "en_US": "Breadcrumb Level 3"
+    },
+    "/form/breadcrumb4/label": {
+      "de_DE": "Breadcrumb Ebene 4",
+      "en_US": "Breadcrumb Level 4"
+    },
+    "/form/breadcrumb5/label": {
+      "de_DE": "Breadcrumb Ebene 5",
+      "en_US": "Breadcrumb Level 5"
+    },
+    "/form/menu/label": {
+      "de_DE": "Menü Daten",
+      "en_US": "Menu Data"
+    },
+    "/form/menu/dialogButton/title": {
+      "de_DE": "Menü Daten Vorlage",
+      "en_US": "Menu Data Template"
+    },
+    "/form/menu/dialogButton": {
+      "de_DE": "Menü Daten Vorlage",
+      "en_US": "Menu Data Template"
+    },
+    "/form/routerPathSimple/label": {
+      "de_DE": "Simpler Router Pfad",
+      "en_US": "Simpler Router Path"
+    },
+    "/form/routerPathSimple/dialogButton/title": {
+      "de_DE": "Simpler Router Vorlage",
+      "en_US": "Simpler Router Template"
+    },
+    "/form/routerPathSimple/dialogButton": {
+      "de_DE": "Simpler Router Vorlage",
+      "en_US": "Simpler Router Template"
+    },
+    "/form/routerPathRegex/label": {
+      "de_DE": "Regex Router Pfad",
+      "en_US": "Regex Router Path"
+    },
+    "/form/routerPathRegex/dialogButton/title": {
+      "de_DE": "Regex Router Vorlage",
+      "en_US": "Regex Router Template"
+    },
+    "/form/routerPathRegex/dialogButton": {
+      "de_DE": "Regex Router Vorlage",
+      "en_US": "Regex Router Template"
+    },
+    "/notification/created": {
+      "de_DE": "Skeleton wurde erstellt",
+      "en_US": "Skeleton is created"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.ApplicationDeveloperSkeletonHistory--container {
+    display: flex;
+    flex-direction: column;
+}
+
+.ApplicationDeveloperSkeletonHistory--container-item {
+    display: flex;
+    flex: 1;
+    margin: 0.2em 0;
+}
+
+.ApplicationDeveloperSkeletonHistory--container-item-title {
+    flex: 1;
+    border-bottom: 1px solid #000;
+
+}
+
+.ApplicationDeveloperSkeletonHistory--container-item-content {
+    flex: 1;
+    border-bottom: 1px solid #000;
+}

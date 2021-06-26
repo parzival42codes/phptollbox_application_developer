@@ -1,0 +1,22 @@
+{
+  "type": "install.menu",
+  "content": {
+    "link": "index.php?application=ApplicationDeveloperPlayground",
+    "menuClassMain": "ApplicationDeveloperPlayground",
+    "menuIcon": "&#x1F6E0;",
+    "language": {
+      "de_DE": {
+        "menuTitle": "!Spielwiese",
+        "menuDescription": "",
+        "menuPath": "/Entwickler",
+        "menuAccess": "ApplicationDeveloperPlayground"
+      },
+      "en_US": {
+        "menuTitle": "!Playground",
+        "menuDescription": "",
+        "menuPath": "/Developer",
+        "menuAccess": "ApplicationDeveloperPlayground"
+      }
+    }
+  }
+}

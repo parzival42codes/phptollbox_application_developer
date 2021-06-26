@@ -1,0 +1,22 @@
+{
+  "type": "install.menu",
+  "content": {
+    "link": "index.php?application=ApplicationDeveloperSkeleton",
+    "menuClassMain": "ApplicationDeveloperSkeleton",
+    "menuIcon": "&#x1F6E0;",
+    "language": {
+      "de_DE": {
+        "menuTitle": "Skeleton",
+        "menuDescription": "",
+        "menuPath": "/Entwickler",
+        "menuAccess": "ApplicationDeveloperSkeleton"
+      },
+      "en_US": {
+        "menuTitle": "Skeleton",
+        "menuDescription": "",
+        "menuPath": "/Developer",
+        "menuAccess": "ApplicationDeveloperSkeleton"
+      }
+    }
+  }
+}
