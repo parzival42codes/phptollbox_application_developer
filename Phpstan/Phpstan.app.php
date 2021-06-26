@@ -99,6 +99,13 @@ class ApplicationDeveloperPhpstan_app extends Application_abstract
                     $note = '<span class="note info">&nbsp;</span>';
                 }
 
+                if (
+                    str_contains($message['message'],
+                                 'PHPDoc tag') === true
+                ) {
+                    $note = '<span class="note info">&nbsp;</span>';
+                }
+
                 $tableTcs[] = [
                     'countAll'  => ++$counter,
                     'count'     => (++$count) . ' / ' . $files['errors'],
