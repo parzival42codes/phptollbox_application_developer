@@ -107,7 +107,7 @@ class ApplicationDeveloperDocumentation_app extends Application_abstract
 
         $breadcrumb = $page->getBreadcrumb();
 
-        $breadcrumb->addBreadcrumbItem(ContainerFactoryLanguage::get('/Developer/breadcrumb'),
+        $breadcrumb->addBreadcrumbItem(ContainerFactoryLanguage::get('/ApplicationDeveloper/breadcrumb'),
                                        'index.php?application=Developer');
 
         $breadcrumb->addBreadcrumbItem(ContainerFactoryLanguage::get('/' . $thisClassName . '/meta/title'),

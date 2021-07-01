@@ -842,9 +842,11 @@ class ApplicationDeveloperSkeleton_app extends Application_abstract
         $router = Container::get('ContainerFactoryRouter');
         $router->analyzeUrl('index.php?application=' . $thisClassName . '');
 
-
-
         $breadcrumb = $page->getBreadcrumb();
+
+        $breadcrumb->addBreadcrumbItem(ContainerFactoryLanguage::get('/ApplicationDeveloper/breadcrumb'),
+                                       'index.php?application=Developer');
+
         $breadcrumb->addBreadcrumbItem(ContainerFactoryLanguage::get('/' . $thisClassName . '/breadcrumb'),
                                        'index.php?application=' . $thisClassName . '');
 
