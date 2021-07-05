@@ -25,6 +25,8 @@ class ApplicationDeveloperPhpstan_app extends Application_abstract
 
     # docker run --rm -v C:\Users\stefa\git\devilbox\data\www\phpcraftbox:/app ghcr.io/phpstan/phpstan analyse --configuration phpstan.neon --error-format=json > C:\Users\stefa\git\devilbox\data\www\phpcraftbox/Storage/phpstan.json
 
+    # docker run --rm -v $(pwd):/data cytopia/phpcs
+
     private array $ignoreStringContain
         = [
             'Console_abstract',
