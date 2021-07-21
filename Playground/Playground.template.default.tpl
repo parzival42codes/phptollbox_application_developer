@@ -9,22 +9,25 @@
 
             Foo
             Bar
-
-
             ---
 
             ## List
-            1. a
-            2. b
-            3 . c
-
             * 1
             * 2
             * 3
 
             - 1
             - 2
-            -3
+            - 3
+
+            Der Text ist **fett** und __wieder fett__
+            Und *schief*
+            Und ***schief und fett***
+
+            > # foo
+            >
+            > bar
+            > ** foo the bar **
 
         </CMS>
     </div>
