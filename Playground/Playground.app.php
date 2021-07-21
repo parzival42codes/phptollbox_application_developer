@@ -19,47 +19,17 @@ class ApplicationDeveloperPlayground_app extends Application_abstract
      */
     public function setContent(): string
     {
+        $templateCache = new ContainerExtensionTemplateLoad_cache_template(Core::getRootClass(__CLASS__),
+                                                                           'default');
 
-//        /** @var ContainerFactoryUser_crud $crud */
-//        $crud = Container::get('ContainerFactoryUser_crud');
-//        $crud->setCrudEmail('foo@bar.de');
-////        $crud->setCrudEmail('stefan.schlombs@gmail.com');
-//        $crud->findByColumn('crudEmail');
-//
-//        d($crud);
-//        eol();
+        /** @var ContainerExtensionTemplate $template */
+        $template = Container::get('ContainerExtensionTemplate');
+        $template->set($templateCache->getCacheContent()['default']);
 
-//        /** @var ContainerFactoryUser $user */
-//        $user = Container::getInstance('ContainerFactoryUser');
-//
-//        d($user->checkUserAccess('ApplicationUserLogin/Menu'));
-//        eol();
+        $template->parseQuote();
+        $template->parse();
+        return $template->get();
 
-//        /** @var ContainerFactoryMail $mailer */
-//        $mailer = Container::get('ContainerFactoryMail');
-//
-//        $mailer->addAddress('foo@bar.de',
-//                            'Foo Bar');
-//        $mailer->setBody('123456');
-//        $mailer->setSubject('abcd');
-//        $mailer->setFrom('foo@bar.de');
-//        $mailer->send();
-
-//        /** @var ApplicationUserEmailcheck $emailCheck */
-//        $emailCheck = Container::get('ApplicationUserEmailcheck');
-//
-//        $emailCheck->create('foo@bar.de',
-//                            'Foo - Bar',
-//                            '[[LINK]]',
-//                            self::class,
-//                            'doActivateUser');
-
-//        d(shell_exec('docker run --rm -v /home/stefan/git/devilbox/data/www/phpcraftbox:/app ghcr.io/phpstan/phpstan analyse --configuration phpstan.neon --error-format=json'));
-//        d(exec('docker run --rm -v /home/stefan/git/devilbox/data/www/phpcraftbox:/app ghcr.io/phpstan/phpstan analyse --configuration phpstan.neon --error-format=json'));
-//        eol();
-
-
-        return '';
     }
 
 
