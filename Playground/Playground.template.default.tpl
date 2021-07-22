@@ -27,10 +27,12 @@
             > # foo
             >
             > bar
-            > ** foo the bar **
-            > > What?
-            > > Is
-            > > This
+
+            ` Code `
+
+            Test Code `inserted`
+
+            `` Code Test` Foo Bar `
 
 
         </CMS>
