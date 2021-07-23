@@ -35,6 +35,9 @@
             `` Code Test` Foo Bar `
 
 
+
+            [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy")
+
         </CMS>
     </div>
 </div>
