@@ -12,7 +12,7 @@ $pagination->create();
 
 /** @var ApplicationDeveloperSkeleton_crud $crud */
 $crud        = Container::get('ApplicationDeveloperSkeleton_crud');
-$crudImports = $crud->find([],
+$crudFind = $crud->find([],
 [],
 [],
 $pagination->getPagesView(),
