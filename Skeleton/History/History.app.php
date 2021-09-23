@@ -31,7 +31,7 @@ class ApplicationDeveloperSkeletonHistory_app extends Application_abstract
 
         Event::trigger(__CLASS__ . '/templateCache',
                        null,
-                       null,
+                       $this->scope,
                        $templateCache);
 
         /** @var ContainerExtensionTemplate $template */
@@ -99,8 +99,8 @@ class ApplicationDeveloperSkeletonHistory_app extends Application_abstract
             $templateInformation->parse();
 
             if (
-            in_array('css',
-                ($content['has'] ?? []))
+                in_array('css',
+                    ($content['has'] ?? []))
             ) {
                 $hasCss = '{insert/resources resource="icon" icon="char_yes"}';
             }
@@ -109,8 +109,8 @@ class ApplicationDeveloperSkeletonHistory_app extends Application_abstract
             }
 
             if (
-            in_array('javascript',
-                ($content['has'] ?? []))
+                in_array('javascript',
+                    ($content['has'] ?? []))
             ) {
                 $hasJavascript = '{insert/resources resource="icon" icon="char_yes"}';
             }
@@ -119,8 +119,8 @@ class ApplicationDeveloperSkeletonHistory_app extends Application_abstract
             }
 
             if (
-            in_array('form',
-                ($content['content'] ?? []))
+                in_array('form',
+                    ($content['content'] ?? []))
             ) {
                 $hasContentForm = '{insert/resources resource="icon" icon="char_yes"}';
             }
@@ -129,8 +129,8 @@ class ApplicationDeveloperSkeletonHistory_app extends Application_abstract
             }
 
             if (
-            in_array('pagination',
-                ($content['content'] ?? []))
+                in_array('pagination',
+                    ($content['content'] ?? []))
             ) {
                 $hasContentPagination = '{insert/resources resource="icon" icon="char_yes"}';
             }
@@ -139,8 +139,8 @@ class ApplicationDeveloperSkeletonHistory_app extends Application_abstract
             }
 
             if (
-            in_array('filter',
-                ($content['content'] ?? []))
+                in_array('filter',
+                    ($content['content'] ?? []))
             ) {
                 $hasContentFilter = '{insert/resources resource="icon" icon="char_yes"}';
             }
@@ -149,8 +149,8 @@ class ApplicationDeveloperSkeletonHistory_app extends Application_abstract
             }
 
             if (
-            in_array('notification',
-                ($content['content'] ?? []))
+                in_array('notification',
+                    ($content['content'] ?? []))
             ) {
                 $hasContentNotification = '{insert/resources resource="icon" icon="char_yes"}';
             }
@@ -238,7 +238,6 @@ class ApplicationDeveloperSkeletonHistory_app extends Application_abstract
         /** @var ContainerFactoryRouter $router */
         $router = Container::get('ContainerFactoryRouter');
         $router->analyzeUrl('index.php?application=' . $this->___getRootClass() . '');
-
 
 
         $breadcrumb = $page->getBreadcrumb();
