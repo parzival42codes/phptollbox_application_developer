@@ -229,7 +229,7 @@ class ApplicationDeveloperSkeletonHistory_app extends Application_abstract
         return $template->get();
     }
 
-    private function pageData(): void
+    protected function pageData(): void
     {
         /** @var ContainerIndexPage $page */
         $page = Container::getInstance('ContainerIndexPage');

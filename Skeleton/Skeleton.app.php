@@ -829,7 +829,7 @@ class ApplicationDeveloperSkeleton_app extends Application_abstract
 
     }
 
-    private function pageData(): void
+    protected function pageData(): void
     {
 
         $thisClassName = Core::getRootClass(__CLASS__);
