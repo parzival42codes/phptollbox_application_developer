@@ -48,7 +48,7 @@ class ApplicationDeveloperPhpstan_app extends Application_abstract
 
         /** @var ContainerExtensionTemplate $template */
         $template = Container::get('ContainerExtensionTemplate');
-        $template->set($templateCache->getCacheContent()['default']);
+        $template->set($templateCache->get()['default']);
 
         $phpStanJson = file_get_contents(CMS_ROOT . 'Storage/phpstan.json');
 

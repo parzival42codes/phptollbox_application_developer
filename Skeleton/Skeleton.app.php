@@ -62,7 +62,7 @@ class ApplicationDeveloperSkeleton_app extends Application_abstract
 
         /** @var ContainerExtensionTemplate $template */
         $template = Container::get('ContainerExtensionTemplate');
-        $template->set($templateCache->getCacheContent()['default']);
+        $template->set($templateCache->get()['default']);
 
         $formHelper->addFormElement('className',
                                     'Text',
@@ -460,7 +460,7 @@ class ApplicationDeveloperSkeleton_app extends Application_abstract
 
         /** @var ContainerExtensionTemplate $templateClassDoc */
         $templateClassDoc = Container::get('ContainerExtensionTemplate');
-        $templateClassDoc->set($templateCache->getCacheContent()['classdoc']);
+        $templateClassDoc->set($templateCache->get()['classdoc']);
         $templateClassDoc->assign('name',
                                   $response->get('name'));
         $templateClassDoc->assign('description',
@@ -531,7 +531,7 @@ class ApplicationDeveloperSkeleton_app extends Application_abstract
 
         /** @var ContainerExtensionTemplate $template */
         $template = Container::get('ContainerExtensionTemplate');
-        $template->set($templateCache->getCacheContent()['setcontent']);
+        $template->set($templateCache->get()['setcontent']);
         $responseAdditionalTemplates = $response->get('additionalTemplates');
         $responseAdditionalTemplates = strtr($responseAdditionalTemplates,
                                              [
@@ -565,7 +565,7 @@ class ApplicationDeveloperSkeleton_app extends Application_abstract
 
             /** @var ContainerExtensionTemplate $templateFormHelper */
             $templateFormHelper = Container::get('ContainerExtensionTemplate');
-            $templateFormHelper->set($templateCache->getCacheContent()['formhelper']);
+            $templateFormHelper->set($templateCache->get()['formhelper']);
             $template->assign('formHelper',
                               $templateFormHelper->get());
         }
@@ -581,7 +581,7 @@ class ApplicationDeveloperSkeleton_app extends Application_abstract
 
             /** @var ContainerExtensionTemplate $templateFormHelper */
             $templateFormHelper = Container::get('ContainerExtensionTemplate');
-            $templateFormHelper->set($templateCache->getCacheContent()['pagination']);
+            $templateFormHelper->set($templateCache->get()['pagination']);
             $template->assign('pagination',
                               $templateFormHelper->get());
         }
@@ -597,7 +597,7 @@ class ApplicationDeveloperSkeleton_app extends Application_abstract
 
             /** @var ContainerExtensionTemplate $templateFormHelper */
             $templateFormHelper = Container::get('ContainerExtensionTemplate');
-            $templateFormHelper->set($templateCache->getCacheContent()['notification']);
+            $templateFormHelper->set($templateCache->get()['notification']);
             $template->assign('notification',
                               $templateFormHelper->get());
         }
@@ -613,7 +613,7 @@ class ApplicationDeveloperSkeleton_app extends Application_abstract
 
             /** @var ContainerExtensionTemplate $templateFormHelper */
             $templateFormHelper = Container::get('ContainerExtensionTemplate');
-            $templateFormHelper->set($templateCache->getCacheContent()['filter']);
+            $templateFormHelper->set($templateCache->get()['filter']);
             $template->assign('filter',
                               $templateFormHelper->get());
         }
@@ -638,7 +638,7 @@ class ApplicationDeveloperSkeleton_app extends Application_abstract
 
             /** @var ContainerExtensionTemplate $templateForm */
             $templateForm = Container::get('ContainerExtensionTemplate');
-            $templateForm->set($templateCache->getCacheContent()['form']);
+            $templateForm->set($templateCache->get()['form']);
 
             $classObject->addMethod('formResponse',
                                     '
@@ -659,7 +659,7 @@ class ApplicationDeveloperSkeleton_app extends Application_abstract
 
         /** @var ContainerExtensionTemplate $templatePageData */
         $templatePageData = Container::get('ContainerExtensionTemplate');
-        $templatePageData->set($templateCache->getCacheContent()['pagedata']);
+        $templatePageData->set($templateCache->get()['pagedata']);
         $templatePageData->assign('class',
                                   $responseClassName);
         $templatePageData->assign('breadcrumbs',

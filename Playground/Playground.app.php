@@ -24,7 +24,7 @@ class ApplicationDeveloperPlayground_app extends Application_abstract
 
         /** @var ContainerExtensionTemplate $template */
         $template = Container::get('ContainerExtensionTemplate');
-        $template->set($templateCache->getCacheContent()['default']);
+        $template->set($templateCache->get()['default']);
 
         $template->parseQuote();
         $template->parse();

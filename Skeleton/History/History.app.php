@@ -36,7 +36,7 @@ class ApplicationDeveloperSkeletonHistory_app extends Application_abstract
 
         /** @var ContainerExtensionTemplate $template */
         $template = Container::get('ContainerExtensionTemplate');
-        $template->set($templateCache->getCacheContent()['default']);
+        $template->set($templateCache->get()['default']);
 
         /** @var ApplicationDeveloperSkeleton_crud $crud */
         $crud  = Container::get('ApplicationDeveloperSkeleton_crud');
@@ -74,7 +74,7 @@ class ApplicationDeveloperSkeletonHistory_app extends Application_abstract
 
             /** @var ContainerExtensionTemplate $templateButton */
             $templateButton = Container::get('ContainerExtensionTemplate');
-            $templateButton->set($templateCache->getCacheContent()['button']);
+            $templateButton->set($templateCache->get()['button']);
             $templateButton->assign('crudId',
                                     $crudImport->getCrudId());
             $templateButton->assign('export',
@@ -83,7 +83,7 @@ class ApplicationDeveloperSkeletonHistory_app extends Application_abstract
 
             /** @var ContainerExtensionTemplate $templateInformation */
             $templateInformation = Container::get('ContainerExtensionTemplate');
-            $templateInformation->set($templateCache->getCacheContent()['information']);
+            $templateInformation->set($templateCache->get()['information']);
             $templateInformation->assign('className',
                 (($content['className'] ?? '')));
             $templateInformation->assign('informationName',
@@ -160,7 +160,7 @@ class ApplicationDeveloperSkeletonHistory_app extends Application_abstract
 
             /** @var ContainerExtensionTemplate $templateGenerated */
             $templateGenerated = Container::get('ContainerExtensionTemplate');
-            $templateGenerated->set($templateCache->getCacheContent()['generated']);
+            $templateGenerated->set($templateCache->get()['generated']);
             $templateGenerated->assign('generatedCss',
                                        $hasCss);
             $templateGenerated->assign('generatedJavascript',
@@ -184,14 +184,14 @@ class ApplicationDeveloperSkeletonHistory_app extends Application_abstract
 
             /** @var ContainerExtensionTemplate $templateLanguage */
             $templateLanguage = Container::get('ContainerExtensionTemplate');
-            $templateLanguage->set($templateCache->getCacheContent()['language']);;
+            $templateLanguage->set($templateCache->get()['language']);;
             $templateLanguage->assign('language',
                                       nl2br($this->modifyViewData(($content['language'] ?? ''))));
             $templateLanguage->parse();
 
             /** @var ContainerExtensionTemplate $templateBreadcrumb */
             $templateBreadcrumb = Container::get('ContainerExtensionTemplate');
-            $templateBreadcrumb->set($templateCache->getCacheContent()['breadcrumb']);
+            $templateBreadcrumb->set($templateCache->get()['breadcrumb']);
             $templateBreadcrumb->assign('breadcrumb1',
                                         $this->modifyClassName(($content['breadcrumb1'] ?? '')));
             $templateBreadcrumb->assign('breadcrumb2',
@@ -206,7 +206,7 @@ class ApplicationDeveloperSkeletonHistory_app extends Application_abstract
 
             /** @var ContainerExtensionTemplate $templateRouter */
             $templateRouter = Container::get('ContainerExtensionTemplate');
-            $templateRouter->set($templateCache->getCacheContent()['router']);
+            $templateRouter->set($templateCache->get()['router']);
             $templateRouter->assign('routerPathSimple',
                                     nl2br($this->modifyViewData(($content['routerPathSimple'] ?? ''))));
             $templateRouter->assign('routerPathRegex',
