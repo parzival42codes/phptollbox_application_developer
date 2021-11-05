@@ -38,11 +38,16 @@ class ApplicationDeveloperDocumentation_app extends Application_abstract
         foreach ($crudDoc as $crudDocItem) {
             $path = ContainerFactoryModul::getModulMenuLanguage($crudDocItem->getCrudClass(),
                                                                 $crudDocItem->getCrudClass());
-            $name = ucfirst($crudDocItem->getCrudType());
+
+            $pathData = explode('/',
+                                $path);
+            array_shift($pathData);
+            $name = array_pop($pathData);
 
             /** @var ContainerFactoryMenuItem $menuItem */
             $menuItem = Container::get('ContainerFactoryMenuItem');
-            $menuItem->setPath($path);
+            $menuItem->setPath('/' . implode('/',
+                                             $pathData));
             $menuItem->setDescription('');
             $menuItem->setTitle($name);
             $menuItem->setLink('index.php?application=ApplicationDeveloperDocumentation&id=' . $crudDocItem->getCrudId());
@@ -64,15 +69,20 @@ class ApplicationDeveloperDocumentation_app extends Application_abstract
 
             /** @var ContainerExtensionDocumentation_crud $crud */
             $crud = Container::get('ContainerExtensionDocumentation_crud');
-            $crud->setCrudId((int)$requestDoc->get());
+            $crud->setCrudClass((string)$requestDoc->get());
             $crud->findById(true);
 
             $path = ContainerFactoryModul::getModulMenuLanguage($crud->getCrudClass(),
                                                                 $crud->getCrudClass());
-            $name = ucfirst($crud->getCrudType());
+
+            $pathData = explode('/',
+                                $path);
+            array_shift($pathData);
+            $name = array_pop($pathData);
 
             $template->assign('menu',
-                              $configMenu->createMenu($path,
+                              $configMenu->createMenu('/' . implode('/',
+                                                                    $pathData),
                                                       $name));
 
             $template->assign('doc',
