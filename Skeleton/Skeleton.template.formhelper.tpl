@@ -1,5 +1,5 @@
 /** @var ContainerExtensionTemplateParseCreateForm_helper $formHelper */
-$formHelper = Container::get('ContainerExtensionTemplateParseCreateForm_helper',
+$formHelper = new ContainerExtensionTemplateParseCreateForm_helper(
 '',
 '');
 

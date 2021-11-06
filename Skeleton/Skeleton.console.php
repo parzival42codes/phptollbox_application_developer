@@ -15,37 +15,35 @@ class ApplicationDeveloperSkeleton_console extends Console_abstract
                 $fileContentJson = json_decode($fileContent,
                                                true);
 
-//                d($fileContentJson);
-
                 $this->addProgressFunction(function ($progressData) {
 
                     /* $data */
 
                     $templateCache = new ContainerExtensionTemplateLoad_cache_template('ApplicationDeveloperSkeleton',
-                                                                                       'classdoc');
+                                                                                       'classdoc,setcontent,formhelper');
 
-                    d(Core::getRootClass(__CLASS__));
-                    d($templateCache);
+                    $template = new ContainerExtensionTemplate();
+                    $template->set($templateCache->get()['setcontent']);
 
                     $templateClassDoc = new ContainerExtensionTemplate();
                     $templateClassDoc->set($templateCache->get()['classdoc']);
                     $templateClassDoc->assign('name',
-                        ($data['name'] ?? ''));
+                        ($data['meta']['name'] ?? ''));
                     $templateClassDoc->assign('description',
-                        ($data['description'] ?? ''));
+                        ($data['meta']['description'] ?? ''));
                     $templateClassDoc->assign('author',
-                        ($data['author'] ?? ''));
+                        ($data['meta']['author'] ?? ''));
                     $templateClassDoc->assign('version',
-                        ($data['version'] ?? ''));
+                        ($data['meta']['version'] ?? ''));
                     $templateClassDoc->assign('versionRequiredSystem',
-                        ($data['versionRequiredSystem'] ?? ''));
+                        ($data['meta']['versionRequiredSystem'] ?? ''));
                     $templateClassDoc->assign('groupAccess',
-                        ($data['groupAccess'] ?? ''));
+                        ($data['meta']['groupAccess'] ?? ''));
 
                     $language = '';
                     foreach ($data['language'] as $key => $elem) {
-                        $language .= 'language_path_' . $key . ' ' . ($elem['path'] ?? '???') . eol();
-                        $language .= 'language_name_' . $key . ' ' . ($elem['name'] ?? '???') . eol();
+                        $language .= 'language_path_' . $key . ' ' . ($elem['path'] ?? '???') . PHP_EOL;
+                        $language .= 'language_name_' . $key . ' ' . ($elem['name'] ?? '???') . PHP_EOL;
                     }
 
                     $templateClassDoc->assign('language',
@@ -73,12 +71,34 @@ class ApplicationDeveloperSkeleton_console extends Console_abstract
                                                   '');
                     }
 
+                    $templateClassDoc->parse();
+
+                    $responseClassName = 'Application' . $data['className'];
+                    $classObject = new  ContainerFactoryClass(
+                                                  $responseClassName . '_app',
+                                                  'skeleton',
+                                                  $templateClassDoc->get());
+
+                    if ($data['generate']['additional']['form']) {
+                        $templateFormHelper = new ContainerExtensionTemplate();
+                        $templateFormHelper->set($templateCache->get()['formhelper']);
+                        $template->assign('formHelper',
+                                          $templateFormHelper->get());
+                    }
+                    else {
+                        $template->assign('formHelper',
+                                          '');
+                    }
+
+                    $template->parse();
+                    d($template->get());
+
                     $progressData['message'] = 'Create Class ';
 
                     return $progressData;
                 },
                     [
-                        '/* $data */' => '$data = ' . var_export($fileContentJson['meta'],
+                        '/* $data */' => '$data = ' . var_export($fileContentJson,
                                                                  true) . ';'
                     ]);
 
