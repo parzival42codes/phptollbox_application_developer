@@ -20,7 +20,7 @@ class ApplicationDeveloperSkeleton_console extends Console_abstract
                     /* $data */
 
                     $templateCache = new ContainerExtensionTemplateLoad_cache_template('ApplicationDeveloperSkeleton',
-                                                                                       'classdoc,setcontent,formhelper');
+                                                                                       'classdoc,setcontent,formhelper,form,pagination,notification,filter');
 
                     $template = new ContainerExtensionTemplate();
                     $template->set($templateCache->get()['setcontent']);
@@ -52,8 +52,8 @@ class ApplicationDeveloperSkeleton_console extends Console_abstract
                     if (
                         $data['generate']['css']
                     ) {
-                            $templateClassDoc->assign('hasCSS',
-                                                      '* @modul hasCSS ' . ($data['generate']['cssFiles'] ?? ''));
+                        $templateClassDoc->assign('hasCSS',
+                                                  '* @modul hasCSS ' . ($data['generate']['cssFiles'] ?? ''));
                     }
                     else {
                         $templateClassDoc->assign('hasCSS',
@@ -63,8 +63,8 @@ class ApplicationDeveloperSkeleton_console extends Console_abstract
                     if (
                         $data['generate']['javascript']
                     ) {
-                            $templateClassDoc->assign('hasJavascript',
-                                                      '* @modul hasJavascript ' . ($data['generate']['javascriptFiles'] ?? ''));
+                        $templateClassDoc->assign('hasJavascript',
+                                                  '* @modul hasJavascript ' . ($data['generate']['javascriptFiles'] ?? ''));
                     }
                     else {
                         $templateClassDoc->assign('hasJavascript',
@@ -74,24 +74,64 @@ class ApplicationDeveloperSkeleton_console extends Console_abstract
                     $templateClassDoc->parse();
 
                     $responseClassName = 'Application' . $data['className'];
-                    $classObject = new  ContainerFactoryClass(
-                                                  $responseClassName . '_app',
-                                                  'skeleton',
-                                                  $templateClassDoc->get());
+                    $filePathCreate    = 'Created/';
 
-                    if ($data['generate']['additional']['form']) {
-                        $templateFormHelper = new ContainerExtensionTemplate();
-                        $templateFormHelper->set($templateCache->get()['formhelper']);
-                        $template->assign('formHelper',
-                                          $templateFormHelper->get());
-                    }
-                    else {
-                        $template->assign('formHelper',
-                                          '');
+                    $classObject       = new  ContainerFactoryClass($responseClassName . '_app',
+                                                                    'skeleton',
+                                                                    $templateClassDoc->get());
+
+                    $createHelper = [
+                        'form',
+                        'pagination',
+                        'notification',
+                        'filter',
+                    ];
+                    foreach ($createHelper as $createHelperItem) {
+                        if ($data['generate']['additional'][$createHelperItem]) {
+                            $templateFormHelper = new ContainerExtensionTemplate();
+                            $templateFormHelper->set($templateCache->get()[$createHelperItem]);
+                            $template->assign($createHelperItem,
+                                              $templateFormHelper->get());
+                        }
+                        else {
+                            $template->assign($createHelperItem,
+                                              '');
+                        }
                     }
 
                     $template->parse();
-                    d($template->get());
+
+                    $classObject->addMethod('setContent',
+                                            '
+        ' . $template->get() . '
+        ',
+                                            '',
+                                            'string');
+
+                    if ($data['generate']['additional']['form']) {
+                        /** @var ContainerExtensionTemplate $templateForm */
+                        $templateForm = Container::get('ContainerExtensionTemplate');
+                        $templateForm->set($templateCache->get()['formhelper']);
+
+                        $classObject->addMethod('formResponse',
+                                                '
+        ' . $templateForm->get() . '
+        ',
+                                                'ContainerExtensionTemplateParseCreateForm_helper $formHelper');
+                    }
+
+                    $classObject->setExtends('Application_abstract');
+
+                    $classObject->create();
+
+                    $file = new ContainerFactoryFile(
+                                           $responseClassName . '_app_php',
+                                           false,
+                                           $filePathCreate);
+
+                    $file->checkAndGenerateDirectoryByFilePath();
+                    $file->set($classObject->create());
+                    $file->save();
 
                     $progressData['message'] = 'Create Class ';
 
