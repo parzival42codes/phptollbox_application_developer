@@ -19,6 +19,11 @@ class ApplicationDeveloperSkeleton_console extends Console_abstract
 
                     /* $data */
 
+                    $progressData['_data']              = $data;
+                    $progressData['_responseClassName'] = 'Application' . $data['className'];
+                    $progressData['_filePathCreate']    = CMS_PATH_STORAGE . 'Created/';
+
+
                     $templateCache = new ContainerExtensionTemplateLoad_cache_template('ApplicationDeveloperSkeleton',
                                                                                        'classdoc,setcontent,formhelper,form,pagination,notification,filter');
 
@@ -73,12 +78,9 @@ class ApplicationDeveloperSkeleton_console extends Console_abstract
 
                     $templateClassDoc->parse();
 
-                    $responseClassName = 'Application' . $data['className'];
-                    $filePathCreate    = 'Created/';
-
-                    $classObject       = new  ContainerFactoryClass($responseClassName . '_app',
-                                                                    'skeleton',
-                                                                    $templateClassDoc->get());
+                    $classObject = new  ContainerFactoryClass($progressData['_responseClassName'] . '_app',
+                                                              'skeleton',
+                                                              $templateClassDoc->get());
 
                     $createHelper = [
                         'form',
@@ -124,10 +126,9 @@ class ApplicationDeveloperSkeleton_console extends Console_abstract
 
                     $classObject->create();
 
-                    $file = new ContainerFactoryFile(
-                                           $responseClassName . '_app_php',
-                                           false,
-                                           $filePathCreate);
+                    $file = new ContainerFactoryFile($progressData['_responseClassName'] . '_app_php',
+                                                     false,
+                                                     $progressData['_filePathCreate']);
 
                     $file->checkAndGenerateDirectoryByFilePath();
                     $file->set($classObject->create());
@@ -144,6 +145,172 @@ class ApplicationDeveloperSkeleton_console extends Console_abstract
 
 
             }
+
+            $this->addProgressFunction(function ($progressData) {
+
+                $templateCache = new ContainerExtensionTemplateLoad_cache_template('ApplicationDeveloperSkeleton',
+                                                                                   'setinstall,setinstall.language');
+
+                $template = new ContainerExtensionTemplate();
+                $template->set($templateCache->get()['setinstall']);
+
+                if (isset($progressData['_data']['language'])) {
+                    $template->assign('importLanguage',
+                                      '$$this->importLanguage();');
+                }
+
+                if (isset($progressData['_data']['menu'])) {
+                    $template->assign('importMenu',
+                                      '$$this->importMenu();');
+                }
+
+                if (isset($progressData['_data']['route'])) {
+                    $template->assign('importRoute',
+                                      '$this->importRoute()');
+                }
+
+                $templateLanguage = new ContainerExtensionTemplate();
+                $templateFiles    = '';
+
+                if (isset($progressData['_data']['generate']['templates'])) {
+                    $templates = explode(',',
+                                         $progressData['_data']['generate']['templates']);
+
+                    foreach ($templates as $templatesFile) {
+                        $templateLanguage->set($templateCache->get()['setinstall.language']);
+                        $templateLanguage->assign('template',
+                                                  $templatesFile);
+                        $templateLanguage->parse();
+                        $templateFiles .= $templateLanguage->get();
+                    }
+                    $template->assign('templateFiles',
+                                      $templateFiles);
+
+                }
+                else {
+                    $template->assign('templateFiles',
+                                      '');
+                }
+
+
+                $classObject = new  ContainerFactoryClass($progressData['_responseClassName'] . '_install',
+                                                          'skeleton',
+                                                          $template->get());
+
+
+                $classObject->setExtends('Base');
+
+                $classObject->create();
+
+                $file = new ContainerFactoryFile($progressData['_responseClassName'] . '_install_php',
+                                                 false,
+                                                 $progressData['_filePathCreate']);
+
+                $file->checkAndGenerateDirectoryByFilePath();
+                $file->set($classObject->create());
+                $file->save();
+
+                $progressData['message'] = 'Create Class Install';
+
+                return $progressData;
+            });
+
+
+            $this->addProgressFunction(function ($progressData) {
+
+                if (isset($progressData['_data']['language'])) {
+                    $fileLanguage = new ContainerFactoryFile($progressData['_responseClassName'] . '_install_language_json',
+                                                             false,
+                                                             $progressData['_filePathCreate']);
+                    $fileLanguage->checkAndGenerateDirectoryByFilePath();
+
+                    $languageArray = [
+                        'type'    => 'install.language',
+                        'content' => $progressData['_data']['language']
+                    ];
+
+                    $fileLanguage->set(json_encode($languageArray));
+                    $fileLanguage->save();
+
+                }
+
+                $progressData['message'] = 'Create Language ';
+
+                return $progressData;
+
+            });
+
+            $this->addProgressFunction(function ($progressData) {
+
+                if (isset($progressData['_data']['menu'])) {
+                    $fileLanguage = new ContainerFactoryFile($progressData['_responseClassName'] . '_install_menu_json',
+                                                             false,
+                                                             $progressData['_filePathCreate']);
+                    $fileLanguage->checkAndGenerateDirectoryByFilePath();
+
+                    $languageArray = [
+                        'type'    => 'install.menu',
+                        'content' => $progressData['_data']['language']
+                    ];
+
+                    $fileLanguage->set(json_encode($languageArray));
+                    $fileLanguage->save();
+
+                }
+
+                $progressData['message'] = 'Create Menu ';
+
+                return $progressData;
+
+            });
+
+            $this->addProgressFunction(function ($progressData) {
+
+                if (isset($progressData['_data']['route'])) {
+                    $fileLanguage = new ContainerFactoryFile($progressData['_responseClassName'] . '_install_route_json',
+                                                             false,
+                                                             $progressData['_filePathCreate']);
+                    $fileLanguage->checkAndGenerateDirectoryByFilePath();
+
+                    $languageArray = [
+                        'type'    => 'install.route',
+                        'content' => $progressData['_data']['route']
+                    ];
+
+                    $fileLanguage->set(json_encode($languageArray));
+                    $fileLanguage->save();
+
+                }
+
+                $progressData['message'] = 'Create Route ';
+
+                return $progressData;
+
+            });
+
+            $this->addProgressFunction(function ($progressData) {
+
+                if (isset($progressData['_data']['generate']['templates'])) {
+                    $templates = explode(',',
+                                         $progressData['_data']['generate']['templates']);
+
+                    foreach ($templates as $templatesFile) {
+                        $fileLanguage = new ContainerFactoryFile($progressData['_responseClassName'] . '_template.' . $templatesFile . '.tpl',
+                                                                 false,
+                                                                 $progressData['_filePathCreate']);;
+                        $fileLanguage->checkAndGenerateDirectoryByFilePath();
+                        $fileLanguage->set('');
+                        $fileLanguage->save();
+                    }
+
+                }
+
+                $progressData['message'] = 'Create Template Files ';
+
+                return $progressData;
+
+            });
+
 
         }
     }
